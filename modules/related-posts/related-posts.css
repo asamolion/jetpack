@@ -21,6 +21,7 @@
 	margin: 0 10px;
 	display: flex;
 	flex-direction: column;
+	padding-left: 0;
 }
 
 .jp-related-posts-i2__row[data-post-count="3"] .jp-related-posts-i2__post {
@@ -35,6 +36,7 @@
 .jp-related-posts-i2__post-heading, .jp-related-posts-i2__post-img-link,
 .jp-related-posts-i2__post-date, .jp-related-posts-i2__post-context {
 	flex-direction: row;
+	display: block;
 }
 
 .jp-related-posts-i2__post-heading {
