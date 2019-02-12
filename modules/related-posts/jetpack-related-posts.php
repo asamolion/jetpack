@@ -375,6 +375,16 @@ EOT;
 			$rows_markup .= $this->render_block_row( $lower_row_posts, $block_attributes );
 		}
 
+		$target_to_dom_priority = has_filter(
+			'the_content',
+			array( $this, 'filter_add_target_to_dom' )
+		);
+		remove_filter(
+			'the_content',
+			array( $this, 'filter_add_target_to_dom' ),
+			$target_to_dom_priority
+		);
+
 		/*
 		Below is a hack to get the block content to render correctly.
 
