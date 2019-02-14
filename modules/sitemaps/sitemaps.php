@@ -169,8 +169,7 @@ class Jetpack_Sitemap_Manager {
 				)
 			);
 		}
-
-		// echo 'blog public val is: ', get_option('blog_public');
+		
 		echo $the_content ;
 
 		die();
