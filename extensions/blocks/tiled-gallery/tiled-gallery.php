@@ -34,6 +34,22 @@ if (
 		);
 		Jetpack_Gutenberg::load_assets_as_required( 'tiled-gallery', $dependencies );
 
+		if ( ! preg_match_all( '/<img [^>]+>/', $content, $images ) ) {
+			return $content;
+		}
+
+		$find    = array();
+		$replace = array();
+		foreach ( images[0] as $image_html ) {
+			if ( preg_match( '/src="[^"]+"/', $image_html, $img_src ) ) {
+				// @TODO make the photon sources
+				$srcset = esc_attr( implode( ',', array() ) );
+
+				$find[]    = $image_html;
+				$replace[] = str_replace( '<img ', "<img $srcset", $image_html );
+			}
+		}
+
 		/**
 		 * Filter the output of the Tiled Galleries content.
 		 *
